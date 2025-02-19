@@ -1,111 +1,100 @@
+/* 🌌 Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background: url("{{ url_for('static', filename='background.jpg') }}") no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
+    color: #fff;
 }
 
-.container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+/* 🔥 Navbar Styling */
+.navbar {
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-form {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
+.navbar-brand {
+    font-size: 1.5rem;
     font-weight: bold;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-input[type="text"],
-input[type="number"] {
+.nav-link {
+    color: #ddd !important;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #ff4b2b !important;
+}
+
+/* 🔵 Button Styling */
+button, .btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(255, 75, 43, 0.6);
+}
+
+button:hover, .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(255, 75, 43, 0.9);
+}
+
+/* 🔲 Input Fields */
+input[type="text"], input[type="number"], textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Button Styling */
-button {
-    padding: 10px 15px;
-    background-color: #28a745;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    transition: 0.3s;
 }
 
-button:hover {
-    background-color: #218838;
+input:focus, textarea:focus {
+    border-color: #ff4b2b;
+    box-shadow: 0px 0px 10px rgba(255, 75, 43, 0.8);
+    outline: none;
 }
 
-/* Table Styling */
+/* 📊 Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 th, td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 th {
-    background-color: #f8f9fa;
-}
-/* Action Buttons Box */
-.action-buttons {
-    display: flex;
-    justify-content: start; /* Align buttons to the left */
-    gap: 5px; /* Reduce spacing between buttons */
-    padding: 5px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: white;
 }
 
-/* Individual Buttons */
-.action-buttons a {
-    padding: 6px 10px;
-    border-radius: 4px;
-    text-decoration: none;
-    display: inline-block;
+/* 🌟 Footer */
+.footer {
     text-align: center;
-    font-size: 14px; /* Reduce font size for better fit */
-    transition: background 0.3s ease;
-}
-
-/* Delete Button */
-.delete-btn {
-    background-color: #dc3545;
-    color: white;
-}
-
-.delete-btn:hover {
-    background-color: #c82333;
-}
-
-/* Update Button */
-.update-btn {
-    background-color: #007bff;
-    color: white;
-}
-
-.update-btn:hover {
-    background-color: #0056b3;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #aaa;
 }
