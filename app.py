@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -22,6 +22,17 @@ def index():
     expenses = Expense.query.all()
     total_expense = db.session.query(db.func.sum(Expense.amount)).scalar() or 0  # Sum of all expenses
     return render_template('index.html', expenses=expenses, total_expense=total_expense)
+
+@app.route('/chart')
+def chart():
+    expense_data = db.session.query(Expense.category, db.func.sum(Expense.amount).label('total_amount'))\
+        .group_by(Expense.category).all()
+
+    expense_data = [{'category': data.category, 'amount': data.total_amount} for data in expense_data]
+
+    return render_template('chart.html', expense_data=expense_data)
+
+
 
 @app.route('/add', methods=['POST'])
 def add_expense():
